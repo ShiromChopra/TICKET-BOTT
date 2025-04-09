@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ticket Transcript</title>
+  <style>
+    body {
+      background-color: #2c2f33;
+      color: #ddd;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+    }
+
+    .channel-header {
+      font-size: 28px;
+      color: #fff;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      font-size: 14px;
+      color: #aaa;
+      margin-bottom: 30px;
+    }
+
+    .message {
+      background-color: #36393f;
+      border-radius: 6px;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+    }
+
+    .author {
+      font-weight: bold;
+      color: #00b0f4;
+    }
+
+    .timestamp {
+      color: #aaa;
+      font-size: 12px;
+      float: right;
+    }
+
+    .content {
+      margin-top: 5px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="channel-header">#ticket-5</div>
+  <div class="description">This is the start of the #ticket-5 channel.</div>
+
+  <div id="messages-container">
+    <!-- Messages will be inserted here -->
+  </div>
+
+  <script>
+    // Example messages (replace with your own transcript from the bot)
+    const transcript = [
+      { author: 'legendbolte', timestamp: '2025-04-09 12:18', content: 'Hi' },
+      { author: 'legendbolte', timestamp: '2025-04-09 12:18', content: 'Bye' },
+      { author: 'Tickets v2', timestamp: '2025-04-09 12:19', content: 'Thanks for opening a ticket!' },
+    ];
+
+    const container = document.getElementById('messages-container');
+
+    transcript.forEach(msg => {
+      const msgBox = document.createElement('div');
+      msgBox.className = 'message';
+      msgBox.innerHTML = `
+        <div>
+          <span class="author">${msg.author}</span>
+          <span class="timestamp">${msg.timestamp}</span>
+        </div>
+        <div class="content">${msg.content}</div>
+      `;
+      container.appendChild(msgBox);
+    });
+  </script>
+
+</body>
+</html>
